@@ -133,6 +133,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CountButton = React.memo(function CountButton({ onClick, count }) {
+  // eğer bir componentimizde useState, useReducer, useContext
+  // gibi hooklar yoksa, o component gereksiz re-render'a sebepse
+  // o componenti memo() ile sarabiliriz
   console.log("CountButton Rendered");
   return <button onClick={onClick}>{count}</button>;
 });
