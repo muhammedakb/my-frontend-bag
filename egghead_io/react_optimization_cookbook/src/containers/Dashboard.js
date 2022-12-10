@@ -16,7 +16,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import routes from "../routes";
 import { useAppState } from "../components/AppProvider/AppProvider";
 import useMountEffect from "../mountEffect";
-import useMousePosition from "../hooks/useMouse";
+// import useMousePosition from "../hooks/useMouse";
 
 const useStyles = makeStyles((theme) => ({
   panel: {
@@ -55,9 +55,9 @@ const Dashboard = ({ history }) => {
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [openSpeedDial, setOpenSpeedDial] = useState(false);
   const mediaMatcher = matchMedia(`(max-width: ${MobileBreakpoint}px)`);
-  console.log("i rendered");
-  const { x, y } = useMousePosition();
-  console.log(`Here are the coordinates ${x} ${y}`);
+  // console.log("i rendered");
+  // const { x, y } = useMousePosition();
+  // console.log(`Here are the coordinates ${x} ${y}`);
 
   const resizeDispatch = () => {
     if (typeof Event === "function") {

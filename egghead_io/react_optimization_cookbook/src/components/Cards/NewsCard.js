@@ -7,20 +7,23 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   textEllipsis: {
     textOverflow: "ellipsis",
     overflow: "hidden",
-    whiteSpace: "pre"
-  }
+    whiteSpace: "pre",
+  },
 }));
 
+// const NewsCard = ({ feed, subtitle, state, updateState }) => {
 const NewsCard = ({ feed, subtitle }) => {
-  const classes = useStyles();
+  const [newsState, setNewsState] = useState(false);
 
+  const classes = useStyles();
+  console.log("News card rendered");
   const Row = ({ index, style }) => (
     <ListItem key={index} style={style}>
       {feed[index].avatar ? (
@@ -34,7 +37,7 @@ const NewsCard = ({ feed, subtitle }) => {
         inset
         classes={{
           primary: classes.textEllipsis,
-          secondary: classes.textEllipsis
+          secondary: classes.textEllipsis,
         }}
       />
     </ListItem>
@@ -55,6 +58,12 @@ const NewsCard = ({ feed, subtitle }) => {
   return (
     <Card>
       <CardHeader title="Reviews " subheader={subtitle} />
+      {/* <button onClick={() => updateState(!state)}>
+        {state ? "Change News" : "newsState changed"}
+      </button> */}
+      <button onClick={() => setNewsState(!newsState)}>
+        {newsState ? "Change News" : "newsState changed"}
+      </button>
       <Divider />
       <Example />
       <List>
@@ -87,10 +96,10 @@ NewsCard.propTypes = {
       from: PropTypes.string,
       avatar: PropTypes.element,
       subject: PropTypes.string,
-      message: PropTypes.string
+      message: PropTypes.string,
     })
   ).isRequired,
-  subtitle: PropTypes.string
+  subtitle: PropTypes.string,
 };
 
 export default NewsCard;

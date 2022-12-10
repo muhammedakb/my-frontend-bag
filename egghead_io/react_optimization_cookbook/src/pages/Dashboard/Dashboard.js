@@ -42,11 +42,18 @@ const data = [
   createData("Bracelets", "April 12", 34),
   createData("Shoes", "May 28", 56),
   createData("Fragrances", "December 3", 56),
-  createData("Cups", "December 25", 56)
+  createData("Cups", "December 25", 56),
 ];
 
 const Home = () => {
   const [anchorEl, setAnchorEl] = useState(null);
+  // bu iki state'i buradan yönetip prop olarak iletirsek
+  // gereksiz re-render'a sebep olur
+  // o yüzden bunları kullanılacağı componentlere yazmak daha mantıklı
+  // ama illa burada yazılacaksa gerekli memoization işlemleri yapılmalı!
+
+  // const [newsState, setNewsState] = useState(false);
+  // const [statState, setStatState] = useState(false);
   const handleClick = (event) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
   const duplicateItems = (arr, numberOfRepetitions) =>
@@ -94,6 +101,8 @@ const Home = () => {
       <Grid container spacing={1}>
         <Grid item xs={12} sm={6} md={3}>
           <StatCard
+            // state={statState}
+            // updateState={setStatState}
             type="fill"
             title="Campaigns"
             value={103}
@@ -192,6 +201,8 @@ const Home = () => {
         </Grid>
         <Grid item xs={12} sm={12} md={12}>
           <NewsCard
+            // state={newsState}
+            // updateState={setNewsState}
             subtitle="Last updated 24 mins ago"
             feed={duplicateItems(mockFeed, 1000)}
           />
