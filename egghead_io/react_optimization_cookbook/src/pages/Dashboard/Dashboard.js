@@ -61,6 +61,8 @@ const Home = () => {
 
   const topProduct = React.useMemo(
     () => data.sort((a, b) => b.progress - a.progress)[0],
+    // empty array ile kullanırsak:
+    // bu fonksiyon sadece mount zamanında 1 kere çalışsın anlamında.
     []
   );
 
