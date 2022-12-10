@@ -16,10 +16,10 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   mediaGrid: {
     textAlign: "center",
-    overflow: "hidden"
+    overflow: "hidden",
   },
   mediaGridCompact: {
-    borderRadius: `${theme.shape.borderRadius}px 0 0 ${theme.shape.borderRadius}px`
+    borderRadius: `${theme.shape.borderRadius}px 0 0 ${theme.shape.borderRadius}px`,
   },
   figure: {
     position: "relative",
@@ -29,14 +29,14 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     "&:hover $captionAnchor": {
       transform: "translate3d(0,0,0)",
-      opacity: 1
+      opacity: 1,
     },
     "&:hover $caption::before": {
-      transform: "translate3d(0,0,0)"
-    }
+      transform: "translate3d(0,0,0)",
+    },
   },
   figureCompact: {
-    borderRadius: `${theme.shape.borderRadius}px 0 0 ${theme.shape.borderRadius}px`
+    borderRadius: `${theme.shape.borderRadius}px 0 0 ${theme.shape.borderRadius}px`,
   },
   figureImg: {
     position: "relative",
@@ -44,10 +44,10 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "100%",
     borderRadius: `${theme.shape.borderRadius}px ${theme.shape.borderRadius}px 0 0`,
     transition: "opacity 300ms, transform 300ms",
-    opacity: 0.85
+    opacity: 0.85,
   },
   figureImgCompact: {
-    borderRadius: `${theme.shape.borderRadius}px 0 0 ${theme.shape.borderRadius}px`
+    borderRadius: `${theme.shape.borderRadius}px 0 0 ${theme.shape.borderRadius}px`,
   },
   badge: {
     color: theme.palette.primary.contrastText,
@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
     borderLeft: `30px solid ${theme.palette.error.main}`,
     top: 0,
     left: 0,
-    zIndex: 100
+    zIndex: 100,
   },
   badgeText: {
     position: "absolute",
@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
     top: "-18px",
     left: "-25px",
     whiteSpace: "nowrap",
-    color: theme.palette.primary.contrastText
+    color: theme.palette.primary.contrastText,
   },
   caption: {
     color: theme.palette.primary.contrastText,
@@ -90,8 +90,8 @@ const useStyles = makeStyles((theme) => ({
       right: 0,
       bottom: 0,
       borderWidth: "0 45px 0 0",
-      transform: "translate3d(45px,0,0)"
-    }
+      transform: "translate3d(45px,0,0)",
+    },
   },
   captionAnchor: {
     position: "relative",
@@ -101,17 +101,17 @@ const useStyles = makeStyles((theme) => ({
     transform: "translate3d(90px,0,0)",
     margin: `${theme.spacing(1)}px 0`,
     "&:first-child": {
-      transitionDelay: "0.025s"
+      transitionDelay: "0.025s",
     },
     "&:nth-child(2)": {
-      transitionDelay: "0.05s"
+      transitionDelay: "0.05s",
     },
     "&:nth-child(3)": {
-      transitionDelay: "0.075s"
+      transitionDelay: "0.075s",
     },
     "&:nth-child(4)": {
-      transitionDelay: " 0.1s"
-    }
+      transitionDelay: " 0.1s",
+    },
   },
   paragraph: {
     margin: 0,
@@ -121,15 +121,15 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "none",
     fontSize: "1rem",
     width: "45px",
-    position: "relative"
+    position: "relative",
   },
   price: {
     display: "flex",
-    alignItems: "baseline"
+    alignItems: "baseline",
   },
   mainPrice: {
-    color: "green"
-  }
+    color: "green",
+  },
 }));
 
 const CountButton = React.memo(function CountButton({ onClick, count }) {
@@ -147,11 +147,14 @@ const ProductCard = ({
   description,
   sale,
   discounted,
-  discount
+  discount,
 }) => {
   const classes = useStyles();
 
   const [count1, setCount1] = React.useState(0);
+  // empty array çünkü bu fonksiyon hiç değişmeyecek
+  // eğer belli parametrelere göre değişiklik gösterecek olsaydı
+  // onları dependency array içine yazmalıydık
   const likeIncrement = React.useCallback(() => setCount1((c) => c + 1), []);
 
   const [count2, setCount2] = React.useState(0);
@@ -246,7 +249,7 @@ ProductCard.propTypes = {
   description: PropTypes.string,
   sale: PropTypes.bool,
   discounted: PropTypes.bool,
-  discount: PropTypes.number
+  discount: PropTypes.number,
 };
 
 export default React.memo(ProductCard);
