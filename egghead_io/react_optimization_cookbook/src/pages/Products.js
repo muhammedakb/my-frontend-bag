@@ -1,6 +1,9 @@
 import { ProductCard, Wrapper } from "../components";
 import React, { useEffect, useState } from "react";
+
+// Kullanılacağı yere import edilir
 import "./wdyr";
+
 import AppBar from "@material-ui/core/AppBar";
 import Grid from "@material-ui/core/Grid";
 import Hidden from "@material-ui/core/Hidden";
@@ -131,6 +134,7 @@ const Products = () => {
               <Grid item xs={12} sm={6} md={6} lg={4} key={index}>
                 <ProductCard
                   style={memoStyle}
+                  // style={{ background: "red" }}
                   id={product.id}
                   name={product.name}
                   price={product.price}
