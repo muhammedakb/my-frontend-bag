@@ -10,6 +10,8 @@ import fetch from "node-fetch";
 //     });
 // }
 
+// -----------------------------------------------------------------------
+
 // async function showGithubUser(handle) {
 //   const url = `https://api.github.com/users/${handle}`;
 //   const response = await fetch(url);
@@ -20,13 +22,32 @@ import fetch from "node-fetch";
 
 // showGithubUser("muhammedakb");
 
-async function showGithubUser(handle) {
-  const url = `https://api.github.com/users/${handle}`;
-  const response = await fetch(url);
-  return await response.json();
-}
+// -----------------------------------------------------------------------
 
-showGithubUser("muhammedakb").then((user) => {
+// async function showGithubUser(handle) {
+//   const url = `https://api.github.com/users/${handle}`;
+//   const response = await fetch(url);
+//   return await response.json();
+// }
+
+// showGithubUser("muhammedakb").then((user) => {
+//   console.log(user.name);
+//   console.log(user.location);
+// });
+
+// -----------------------------------------------------------------------
+
+class GithubApiClient {
+  async fetchUser(handle) {
+    const url = `https://api.github.com/users/${handle}`;
+    const response = await (await fetch(url)).json();
+    return response;
+  }
+}
+// IIFE
+(async () => {
+  const client = new GithubApiClient();
+  const user = await client.fetchUser("muhammedakb");
   console.log(user.name);
   console.log(user.location);
-});
+})();
