@@ -1,4 +1,3 @@
-// write an asynchronous function with async/await
 import fetch from "node-fetch";
 
 // function showGithubUser(handle) {
@@ -11,12 +10,23 @@ import fetch from "node-fetch";
 //     });
 // }
 
+// async function showGithubUser(handle) {
+//   const url = `https://api.github.com/users/${handle}`;
+//   const response = await fetch(url);
+//   const user = await response.json();
+//   console.log(user.name);
+//   console.log(user.location);
+// }
+
+// showGithubUser("muhammedakb");
+
 async function showGithubUser(handle) {
   const url = `https://api.github.com/users/${handle}`;
   const response = await fetch(url);
-  const user = await response.json();
-  console.log(user.name);
-  console.log(user.location);
+  return await response.json();
 }
 
-showGithubUser("muhammedakb");
+showGithubUser("muhammedakb").then((user) => {
+  console.log(user.name);
+  console.log(user.location);
+});
