@@ -2,7 +2,7 @@
 
 // first in first out (FIFO)
 
-function createQueue() {
+export function createQueue() {
   const queue = [];
 
   return {
