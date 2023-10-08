@@ -10,20 +10,18 @@
 // const link3 = [...category.querySelectorAll("a")];
 
 const peoples = [
-  "Muhammet Akbulut",
-  "Büşra Yunusoğlu",
-  "Can Yılmaz",
-  "Ayça Sahin",
-  "Berkay Ateş",
-  "Alperen Akbulut",
-  "Selim Can Köstekli",
-  "Hayri Korkmaz",
-  "Mert Aydoğan",
-  "Zafer Faruk Ozdemir",
-  "Özgür Yılmaz",
+  'Muhammet Akbulut',
+  'Can Yılmaz',
+  'Berkay Ateş',
+  'Alperen Akbulut',
+  'Selim Can Köstekli',
+  'Hayri Korkmaz',
+  'Mert Aydoğan',
+  'Zafer Faruk Ozdemir',
+  'Özgür Yılmaz',
 ];
 
-const reversePeoples = (people) => people.split(" ").reverse().join(" ");
+const reversePeoples = (people) => people.split(' ').reverse().join(' ');
 
 const result = peoples.map(reversePeoples).sort().map(reversePeoples);
 
@@ -37,15 +35,15 @@ console.log(result);
 // console.log(result2);
 
 const votes = [
-  "angular",
-  "angular",
-  "react",
-  "react",
-  "react",
-  "angular",
-  "ember",
-  "react",
-  "vanilla",
+  'angular',
+  'angular',
+  'react',
+  'react',
+  'react',
+  'angular',
+  'ember',
+  'react',
+  'vanilla',
 ];
 
 const result2 = votes.reduce((tally, vote) => {
