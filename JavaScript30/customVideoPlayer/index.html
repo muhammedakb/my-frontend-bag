@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .player {
+        width: 640px;
+      }
+      .progress {
+        display: flex;
+        flex: 10;
+        position: relative;
+        flex-basis: 100%;
+        height: 5px;
+        background: #000000;
+      }
+      .progress__filled {
+        width: 50%;
+        background: #ffc600;
+        flex: 0;
+        flex-basis: 70%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="player">
+      <video
+        class="player__video viewer"
+        height="360"
+        src="Icardi_Panenka.mp4"
+        width="640"
+      ></video>
+      <div class="player__controls">
+        <div class="progress">
+          <div class="progress__filled"></div>
+        </div>
+        <button class="player__button toggle" title="Toggle Play">▶️</button>
+        <input
+          type="range"
+          name="volume"
+          class="player__slider"
+          min="0"
+          max="1"
+          step="0.05"
+          value="1"
+        />
+        <input
+          type="range"
+          name="playbackRate"
+          class="player__slider"
+          min="0.5"
+          max="2"
+          step="0.1"
+          value="1"
+        />
+        <button data-skip="-10" class="player_button"><< 10s</button>
+        <button data-skip="25" class="player_button">25s >></button>
+      </div>
+    </div>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>
